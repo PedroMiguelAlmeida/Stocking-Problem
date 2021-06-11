@@ -2,29 +2,40 @@ package stockingproblem;
 
 import algorithms.Problem;
 
+import java.io.Console;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class StockingProblem implements Problem<StockingProblemIndividual> {
-    private int materialHeight;
+    private int materialHeight,materialWidth;
     private ArrayList<Item> items;
+    private final int  MAX_HEIGHT = 5;
     //TODO this class might require the definition of additional methods and/or attributes
 
     public StockingProblem(int materialHeight, ArrayList<Item> items) {
         this.materialHeight = materialHeight;
         this.items = items;
+        for (Item item:items){
+            materialWidth += item.getColumns();
+        }
         //TODO this construtor might require additional code
     }
 
     @Override
     public StockingProblemIndividual getNewIndividual() {
-        //TODO
-        throw new UnsupportedOperationException("Not implemented yet.");
-    }
+        //Returns new individual
+        int itemsSize=items.size();
+        return new StockingProblemIndividual(this,itemsSize);
+        }
+
 
     public int getMaterialHeight() {
         return materialHeight;
+    }
+
+    public int getMaterialWidth(){
+        return materialWidth;
     }
 
     public ArrayList<Item> getItems() {

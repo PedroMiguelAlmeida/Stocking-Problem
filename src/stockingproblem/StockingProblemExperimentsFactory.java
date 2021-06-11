@@ -60,7 +60,7 @@ public class StockingProblemExperimentsFactory extends ExperimentsFactory {
         }
 
         //MUTATION
-        double mutationProbability = Double.parseDouble(getParameterValue("Mutation probability"));
+        double mutationProbability = Double.parseDouble(getParameterValue("Mutation_property"));
 
         switch (getParameterValue("Mutation")) {
             case "insert":
